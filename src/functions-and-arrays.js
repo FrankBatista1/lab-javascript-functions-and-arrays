@@ -28,14 +28,13 @@ console.log(findLongestWord(words));
 
 
 // Iteration #3: Calculate the sum
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(array){
 let total = 0;
-  for (i = 0; i < array.length; i++){
-    total += array[i];
+for (i = 0; i < array.length; i++){
+total += array[i];
   }
   console.log(total)
 }
@@ -45,8 +44,20 @@ sumNumbers(numbers);
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function sum(array) {
+  let mix = 0;
+  for (i = 0; i < array.length; i++){
+    if (typeof array[i] === 'string'){
+      mix += array[i].length;
+    }
+    else{
+      mix += array[i];
+    }
+  }
+  return mix;
+}
+console.log(sum(mixedArr));
 
 
 // Iteration #4: Calculate the average
@@ -81,8 +92,9 @@ function averageWordLength(words) {
 
 
 // Bonus - Iteration #4.1
-function avg() {}
-
+function avg(array) {
+  return sum(array)/array.length
+}
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -97,11 +109,15 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-
 function uniquifyArray(array) {
-  if array[i] = array[0 to array.length]
-  return newArray
+  let arrayUnique = [];
+  for (i = 0; i < array.length; i++)
+    if (array.indexOf(array[i]) === i){
+      arrayUnique.push(array[i])
+    }
+  return arrayUnique;
 }
+console.log(uniquifyArray(wordsUnique));
 
 
 
@@ -109,11 +125,11 @@ function uniquifyArray(array) {
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(array,word) {
-  for (i = 0; i < array.length; i++)
-  if (array[i] === word)
+  for (let i = 0; i < array.length; i++)
+  if (array[i] === word){
   return true;
-  else 
-  return false;
+  }
+  return false
 }
 
 console.log (doesWordExist(wordsFind,'machine'))
